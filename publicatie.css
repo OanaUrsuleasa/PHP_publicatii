@@ -1,0 +1,46 @@
+﻿#continut_log {
+   display: grid;
+}
+
+body > .grid {
+    height: 100%;
+}
+
+.ui.container {
+    width: auto !important;
+}
+
+.ui.segment {
+    position: relative;
+    width: auto;
+}
+
+.content, .button {
+    color: black !important;
+}
+
+#btn_cont_nou {
+    font-size: medium;
+}
+
+a {
+    color: #D5A999 !important;
+}
+
+.input {
+    color: black !important;
+}
+#titlu {
+    padding-top: 15px;
+    //font-size: medium;
+    color: black !important;
+}
+
+.button {
+    background-color: black !important;
+    color: white !important;
+}
+
+label{
+    text-align:left;
+}
