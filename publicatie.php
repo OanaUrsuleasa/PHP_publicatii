@@ -33,7 +33,8 @@
                 </div>
                   <div class="field">
                        <label>Fiser</label>
-                       <input type="file" multiple>
+                       <input type="file" id="fisier" name="file" />
+                      <input type="button" class="ui fluid large submit button" value="Upload" id="btn_upload" onclick="upload();"/>
                   </div>
                     <div class="field">
                         <label>Autor</label>

@@ -25,6 +25,9 @@ function form_publicatie() {
     sessionStorage.setItem('autor', autor);
    
     var path = location.href.split('/publicatie');
+
+    var doc = sessionStorage.getItem('document').split('C:\\xampp\\htdocs\\publicatie/upload/');
+    var document = doc[1];
     $.ajax({
         method: 'POST',
         url: path[0] + '/publicatie/ajax.php',
@@ -40,7 +43,8 @@ function form_publicatie() {
             proiect: sessionStorage.getItem('proiect'),
             subiect: sessionStorage.getItem('subiect'),
             nr_pag: sessionStorage.getItem('nr_pag'),
-            autor:autor
+            autor: autor,
+            document:document
     },
         success: function (response) {
             $('#segment_publicatie').css('display', 'none');
@@ -82,4 +86,28 @@ function form_monograf() {
     sessionStorage.setItem('nr_pag', nr_pag);
 
     $('#modal_monograf').modal('hide');
+}
+
+function upload() {
+    var fd = new FormData();
+    var files = $('#fisier')[0].files[0];
+    fd.append('file', files);
+
+    var path = location.href.split('/publicatie');
+    $.ajax({
+        method: 'POST',
+        url: path[0] + '/publicatie/upload/upload.php',
+        data: fd,
+        contentType: false,
+        processData: false,
+        success: function (response) {
+            if (response != 0) {
+               sessionStorage.setItem('document', response);
+                alert('Fisier incarcat!');
+ 
+            } else {
+                alert('Fisierul NU se poate incarca!!');
+            }
+        }
+    });
 }
