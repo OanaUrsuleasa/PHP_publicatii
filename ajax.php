@@ -35,18 +35,22 @@ if($actiune = 'form_publicatie'){
 
     $autor = mysqli_real_escape_string($con, $_POST['autor']);
     $document = mysqli_real_escape_string($con, $_POST['document']);
-    
+
     $tip = 0;
+    $id_asociat = 0;
     if($tip_asociat=="Articol"){
         $tip .= 1;
+        $id_asociat .= Publicat::insert_articol($con, $revista, $paginceput, $pagfinal, $tip);
     }else if($tip_asociat=="Client report"){
         $tip .= 2;
-    }else if($tip_Asociat=="Monograf"){
+        $id_asociat .= Publicat::insert_client($con, $tip, $client, $proiect);
+    }else if($tip_asociat=="Monograf"){
         $tip .= 3;
+        $id_asociat .= Publicat::insert_monograf($con, $tip, $subiect, $nr_pag);
     }
 
-    Publicat::insert_autor($con, $autor);
-    Publicat::insert_publicatie($con, $titlu, $sumar, $document, $tip, $autor);
+    $id_autor = Publicat::insert_autor($con, $autor);
+    Publicat::insert_publicatie($con, $titlu, $sumar, $document, $tip, $id_autor, $id_asociat);
     require_once PATH.'/publicatie/publicatie_finala.php';
 }
 ?>

@@ -6,16 +6,16 @@
                 Publicatie
             </div>
         </h2>
-        <form id='myForm' class="ui large form" autocomplete="off" action=''>
+        <form id='frm_publicatie' class="ui large form" autocomplete="off">
             <div class="ui stacked segment">
                 <div class="field">
                     <label>Titlu</label>
-                        <input id='int_titlu' type="text" name="titlu" placeholder="Titlu" />
+                        <input id='int_titlu' type="text" name="titlu_publicatie" placeholder="Titlu" />
                 </div>
                 
                 <div class="field">
                     <label>Sumar</label>
-                    <textarea id="continut_sumar"></textarea>
+                    <textarea id="continut_sumar" name="sumar"></textarea>
                 </div>
 
                 <div class="field">
@@ -33,16 +33,19 @@
                 </div>
                   <div class="field">
                        <label>Fiser</label>
-                       <input type="file" id="fisier" name="file" />
-                      <input type="button" class="ui fluid large submit button" value="Upload" id="btn_upload" onclick="upload();"/>
+                       <div class="ui teal labeled icon button" id="add_document">
+                            Adauga un document
+                            <i class="add icon"></i>
+                       </div>
+                      <input id="denumire_doc" typpe="text" disabled/>
                   </div>
                     <div class="field">
                         <label>Autor</label>
-                            <input id='autor' type="text" name="autor" placeholder="Autor" />
+                            <input id='autor' type="text" name="nume_autor" placeholder="Autor" />
                         </div>
                     </div>
-                <div id='btn_salvare' class="ui fluid large teal submit button" onclick='form_publicatie()'>Salvare</div>
-                    <div class="ui error message"></div>
+                <div id='btn_salvare' class="ui fluid large teal submit button" onclick='form_publicatie()'>Salvare</div>     
+                <div class="ui error message"></div>
             </div>
         </form>       
     </div>
@@ -56,28 +59,26 @@
   <div class="header">
     Adauga detalii despre articol :
   </div>
-  <div>
-        <form class="ui form segment" id='frm_articol'>
-
-            <div calss="field modal">
-               <label>Revista in care a aparut</label>
-               <input id='int_revista' type="text" name="revista" placeholder="Titlu revista" />
-            </div> 
-            <div calss="field modal">
-               <label>Pagina de inceput</label>
-               <input id='int_paginceput' type="number" name="pag_inceput" step="1" min="1" />
-            </div>
-            <div calss="field modal">
-               <label>Pagina de final</label>
-               <input id='int_pagfinal' type="number" name="pag_final" step="1" min="1"/>
-            </div>
-               
+  <div class="content">
+        <form class="ui form" id='frm_articol'>            
+                    <div calss="field">
+                       <label>Revista in care a aparut</label>
+                       <input id='int_revista' type="text" name="revista" placeholder="Titlu revista" />
+                    </div> 
+                    <div calss="field">
+                       <label>Pagina de inceput</label>
+                       <input id='int_paginceput' type="number" name="pag_inceput" step="1" min="1" />
+                    </div>
+                    <div calss="field">
+                       <label>Pagina de final</label>
+                       <input id='int_pagfinal' type="number" name="pag_final" step="1" min="1"/>
+                    </div>       
         </form>
   </div>
 
   <div class="actions">
-    <div class="ui button">Renunta</div>
-    <div class="ui button" id="btn_articol" onclick="form_articol();">Salveaza</div>
+    <div class="ui button submit" id="btn_articol" onclick="form_articol();">Salveaza</div>
+      
   </div>
 </div>
 
@@ -131,5 +132,19 @@
   <div class="actions">
     <div class="ui button">Renunta</div>
     <div class="ui button" id="btn_monograf" onclick="form_monograf();">Salveaza</div>
+  </div>
+</div>
+
+<div class="ui modal" id="modal_upload" style="display:none;">
+  <i class="close icon"></i>
+  <div class="header">
+    Adauga document :
+  </div>
+  <div class="ui content Upload">
+    <input type="file" id="fisier" name="file" />                
+  </div>
+
+  <div class="actions">
+   <input type="button" class="ui fluid large submit button" value="Upload" id="btn_upload" onclick="upload();"/>
   </div>
 </div>

@@ -48,7 +48,7 @@
 
               <div class="ui divider"></div>
               <div class="ui content" id="document">
-                  <iframe src="<?php echo ROOT_LINK.'/upload/'$document;?>"
+                  <iframe src="<?php echo ROOT_LINK.'/upload/'.$document;?>"
                       width="800"
                       height="500"></iframe>
 

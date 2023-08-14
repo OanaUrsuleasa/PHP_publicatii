@@ -14,6 +14,7 @@ define('ROOT_LINK', 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['CONTEXT_PREFIX
 
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js<?php echo '?' . mt_rand(); ?>"></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.5.0/semantic.min.js<?php echo '?' . mt_rand(); ?>'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js<?php echo '?' . mt_rand(); ?>'></script>
     <script type='text/javascript' src="<?php echo ROOT_LINK;?>publicatie.js<?php echo '?' . mt_rand(); ?>"></script>
 </head>
 <body>
